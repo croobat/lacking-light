@@ -1,0 +1,27 @@
+Title: Lacking light
+Genre: Roguelike
+Variant: Top down
+New thing: MC tiene una lampara, conforme baja el medidor pierde luz.
+Tienes que ir juntando aceite para rellenar la lampara.
+
+Lose condition: Si la lampara se apaga completamente es game over.
+Te perseguirán enemigos, si te tocan bajará el medidor de luz.
+
+Win condition: Lograr llevar la lampara a la fogata para iluminar todo el nivel.
+
+Se harán tiles que se colocarán de manera aleatoria para generar el nivel proceduralmente.
+Se tienen llaves que abrirán puertas para ganar acceso.
+
+Mandatory:
+Title screen
+Start game
+Credit screen
+Print controls
+
+Opcional:
+Control de volumen
+Tutorial
+
+Estética: Pixelart 8x8
+Paleta de colores: https://lospec.com/palette-list/purplemorning8
+Música: Ambient dark
