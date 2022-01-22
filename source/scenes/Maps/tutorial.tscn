@@ -27,17 +27,7 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[node name="Map1" type="Node"]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 240.0
-margin_bottom = 135.0
-color = Color( 0.180392, 0.164706, 0.309804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tilemap" type="TileMap" parent="."]
+[node name="Tilemap" type="TileMap"]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
