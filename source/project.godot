@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "TileMap",
+"class": "AStar_Path",
+"language": "GDScript",
+"path": "res://scenes/Pathfinding.gd"
+} ]
+_global_script_class_icons={
+"AStar_Path": ""
+}
+
 [application]
 
 config/name="Lacking Light"
