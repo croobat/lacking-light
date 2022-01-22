@@ -24,6 +24,10 @@ config/name="Lacking Light"
 run/main_scene="res://scenes/Main/SceneHandler.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Data="*res://scenes/Singletons/Data.gd"
+
 [display]
 
 window/size/width=240

@@ -3,7 +3,10 @@ class_name AStar_Path
 
 onready var astar = AStar2D.new()
 onready var used_cells = get_used_cells()
-
+#onready var Enemy = get_node("Enemy")
+#onready var Player = get_node("Player")
+onready var Enemy = get_parent().get_node("Enemy")
+onready var Player = get_parent().get_node("Player")
 var path = []
 
 func _ready():
