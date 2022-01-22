@@ -6,12 +6,13 @@ func _ready():
 func _physics_process(delta):
 	pass
 	#print(get_parent().get_node("Player").position)
-
+"""
 func _on_Player_move():
 	var line = get_path_algorithm(self.position,get_parent().get_node("Player").position)
 	print(line)
 	self.position.x = line[1][0]
 	self.position.y = line[1][1]
+	
 
 func get_path_algorithm(start_coord,end_coord):
 	var x1 = start_coord[0]
@@ -62,5 +63,6 @@ func get_path_algorithm(start_coord,end_coord):
 			error += dx
 	if swapped:
 		points.invert()
-		
+	
 	return points
+"""
