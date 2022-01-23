@@ -5,8 +5,8 @@ const START_ROOM_COUNT = 2
 const ROOM_INCREASE_PER_LEVEL = 2
 
 const TOTAL_ROOMS_AVAILABLE = 8
-const CELL_SIZE = 14
-const ROOMS_SIZE = 7
+const CELL_SIZE = 8
+const ROOMS_SIZE = 10
 
 var world_size = 10
 
@@ -17,7 +17,7 @@ var occupied_rooms = []
 
 func _ready():
 	randomize()
-	var level = 10
+	var level = 5
 	world_size += level
 	var total_rooms = START_ROOM_COUNT + level * ROOM_INCREASE_PER_LEVEL
 	#loading room templates
