@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/Player/LightMeter.gd" type="Script" id=1]
+[ext_resource path="res://assets/GUI/slider_grabber_area.png" type="Texture" id=2]
+[ext_resource path="res://assets/GUI/slider_background.png" type="Texture" id=3]
+[ext_resource path="res://assets/GUI/slider_grabber.png" type="Texture" id=4]
+[ext_resource path="res://assets/GUI/slider_bell.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 1, 4 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 1, 4 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 1, 4 )
+
+[node name="LightMeter" type="HSlider"]
+margin_left = -104.0
+margin_top = 40.0
+margin_right = -62.0
+margin_bottom = 56.0
+custom_icons/grabber_disabled = ExtResource( 4 )
+custom_icons/grabber_highlight = ExtResource( 2 )
+custom_icons/grabber = ExtResource( 4 )
+custom_styles/slider = SubResource( 12 )
+custom_styles/grabber_area_highlight = SubResource( 14 )
+custom_styles/grabber_area = SubResource( 13 )
+max_value = 8.0
+editable = false
+scrollable = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -8.0
+margin_top = -3.0
+margin_right = 42.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

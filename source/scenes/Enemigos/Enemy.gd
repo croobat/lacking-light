@@ -5,11 +5,9 @@ func _ready():
 	pass
 func _physics_process(delta):
 	pass
-	#print(get_parent().get_node("Player").position)
 """
 func _on_Player_move():
 	var line = get_path_algorithm(self.position,get_parent().get_node("Player").position)
-	print(line)
 	self.position.x = line[1][0]
 	self.position.y = line[1][1]
 	

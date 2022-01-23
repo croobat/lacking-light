@@ -1,19 +1,31 @@
 extends Area2D
 
 signal move
+signal turnStep
 var count = 0
+var turnsteps = 0
+const STEPS_PER_TURN = 5
+const ENEMY_STEP_COUNT = 2
 onready var map = get_parent().get_node("TileMap")
-onready var collider = get_node("RayCast2D")
+onready var camera = get_node("Camera2D")
 
 func _ready():
 	connect("move",map,"_on_Player_move")
+	connect("turnStep",camera,"_on_Player_turnStep")
+	
 	
 func _physics_process(delta):
-	#print(get_parent().get_node("Floor").get_cell(self.position.x/8,self.position.y/8))
-	count = move(count)
-	if count == 3:
+	var steps = move(turnsteps, count)
+	turnsteps = steps[0]
+	count = steps[1]
+	#[turnsteps, count] = move(turnsteps, count]
+	if count == ENEMY_STEP_COUNT:
 		emit_signal("move")
 		count = 0
+	if turnsteps == STEPS_PER_TURN:
+		turnStep(turnsteps)
+		emit_signal("turnStep")
+		turnsteps = 0
 
 func check_tile(posx,posy):
 	var tile = map.get_cell((self.position.x+posx)/8,(self.position.y+posy)/8)
@@ -28,18 +40,25 @@ func check_tile(posx,posy):
 	else:
 		return true
 
-func move(count):
+func move(turnsteps,count):
 	if Input.is_action_just_released("ui_up") and check_tile(0,-8):
 		self.position.y -= 8
 		count+=1
+		turnsteps += 1
 	if Input.is_action_just_released("ui_down") and check_tile(0,8):
 		self.position.y += 8
 		count+=1
+		turnsteps += 1
 	if Input.is_action_just_released("ui_right") and check_tile(8,0):
 		self.position.x += 8
 		count+=1
+		turnsteps += 1
 	if Input.is_action_just_released("ui_left") and check_tile(-8,0):
 		self.position.x -= 8
 		count+=1
-	return	count	
+		turnsteps += 1
+	return	[turnsteps,count]
 
+func turnStep(turnsteps):
+	if Data.player["Oil"] > 0:
+		Data.player["Oil"] -= 1

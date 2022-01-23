@@ -5,6 +5,5 @@ func _ready():
 
 func _on_Key_area_entered(area):
 	Data.player["Key"]+=1
-	print(Data.player["Key"])
 	self.queue_free()
 

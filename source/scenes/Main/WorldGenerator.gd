@@ -113,7 +113,6 @@ func calcFurthestCell(list):
 		if distance > furthest:
 			furthest = distance
 			furthest_room = room
-	#print(furthest_room)
 	world[furthest_room.x][furthest_room.y] = 4
 	
 	for n in range(-1,2,1):

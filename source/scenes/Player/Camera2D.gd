@@ -1,14 +1,11 @@
 extends Camera2D
 
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
-onready var current_frame = 7
-onready var num_frames = 8
+onready var current_frame = Data.player["Oil"]
 
 func _ready():
-	pass
-	#var num_frames = get_sprite_frames().get_frame_count("animated_sprite")
+	animated_sprite.set_frame(current_frame)
 
-
-func _on_Player_move():
-	current_frame = (current_frame + 1) % num_frames
+func _on_Player_turnStep():
+	current_frame = Data.player["Oil"]
 	animated_sprite.set_frame(current_frame)
