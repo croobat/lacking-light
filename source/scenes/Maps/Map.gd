@@ -1,5 +1,7 @@
 extends "res://scenes/Pathfinding.gd"
 
+
+	
 func _on_Player_move():
 	var Player_pos = world_to_map(Player.global_position)
 	var Enemy_pos = world_to_map(Enemy.global_position)

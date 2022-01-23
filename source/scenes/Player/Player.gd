@@ -5,19 +5,18 @@ var count = 0
 onready var collider = get_node("RayCast2D")
 
 func _ready():
-	pass
+	connect("move",get_parent().get_node("TileMap"),"_on_Player_move")
 	
 func _physics_process(delta):
 	#print(get_parent().get_node("Floor").get_cell(self.position.x/8,self.position.y/8))
 	count = move(count)
-	print(count)
 	if count == 3:
 		emit_signal("move")
 		count = 0
 		
 func check_tile(posx,posy):
-	var tile = get_parent().get_node("Floor").get_cell((self.position.x+posx)/8,(self.position.y+posy)/8)
-	if tile == -1 or tile == 1:
+	var tile = get_parent().get_node("TileMap").get_cell((self.position.x+posx)/8,(self.position.y+posy)/8)
+	if tile == -1 or tile == 0:
 		return false
 	else:
 		return true

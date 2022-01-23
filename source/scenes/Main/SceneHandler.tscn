@@ -1,58 +1,33 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Main/SceneHandler.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Enemigos/Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Maps/Pared.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Maps/room0.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Items/Oil.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Items/Key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Maps/Map.gd" type="Script" id=7]
-[ext_resource path="res://scenes/Maps/Floor.tscn" type="PackedScene" id=8]
-[ext_resource path="res://icon.png" type="Texture" id=9]
-
-[sub_resource type="TileSet" id=1]
-0/name = "icon.png 0"
-0/texture = ExtResource( 9 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 24, 16, 8, 8 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
 
 [node name="SceneHandler" type="Node"]
 script = ExtResource( 2 )
 
-[node name="Floor" parent="." instance=ExtResource( 8 )]
-tile_set = SubResource( 1 )
-cell_size = Vector2( 8, 8 )
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65540, 0, 0, 65541, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 131072, 0, 0, 131081, 0, 0, 131084, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196620, 0, 0, 262154, 0, 0, 262156, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327692, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393228, 0, 0, 458753, 0, 0, 458761, 0, 0, 458762, 0, 0, 458764, 0, 0, 458765, 0, 0, 524288, 0, 0, 524289, 0, 0, 524291, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589829, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0 )
+[node name="TileMap" parent="." instance=ExtResource( 4 )]
 script = ExtResource( 7 )
 
-[node name="Pared" parent="." instance=ExtResource( 4 )]
-script = null
-
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 96, 72 )
+position = Vector2( 64, 56 )
 
 [node name="Oil" parent="." instance=ExtResource( 5 )]
-position = Vector2( 40, 58 )
+position = Vector2( 48, 72 )
 
 [node name="Oil2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 56, 8 )
+position = Vector2( 56, 16 )
 
 [node name="Oil3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 16, 24 )
+position = Vector2( 16, 16 )
 
 [node name="Key" parent="." instance=ExtResource( 6 )]
-position = Vector2( 24, 64 )
+position = Vector2( 16, 48 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-
-[connection signal="move" from="Player" to="Floor" method="_on_Player_move"]
+position = Vector2( 40, 8 )
