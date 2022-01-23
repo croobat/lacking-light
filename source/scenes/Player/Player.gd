@@ -2,10 +2,11 @@ extends Area2D
 
 signal move
 var count = 0
+onready var map = get_parent().get_node("TileMap")
 onready var collider = get_node("RayCast2D")
 
 func _ready():
-	connect("move",get_parent().get_node("TileMap"),"_on_Player_move")
+	connect("move",map,"_on_Player_move")
 	
 func _physics_process(delta):
 	#print(get_parent().get_node("Floor").get_cell(self.position.x/8,self.position.y/8))
@@ -13,11 +14,17 @@ func _physics_process(delta):
 	if count == 3:
 		emit_signal("move")
 		count = 0
-		
+
 func check_tile(posx,posy):
-	var tile = get_parent().get_node("TileMap").get_cell((self.position.x+posx)/8,(self.position.y+posy)/8)
+	var tile = map.get_cell((self.position.x+posx)/8,(self.position.y+posy)/8)
 	if tile == -1 or tile == 0:
 		return false
+	elif tile == 2:
+		if Data.player["Key"] > 0:
+			Data.player["Key"] -= 1
+			map.set_cell((self.position.x+posx)/8,(self.position.y+posy)/8,1)
+		else:
+			return false
 	else:
 		return true
 
