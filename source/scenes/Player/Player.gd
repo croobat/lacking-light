@@ -7,11 +7,11 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	print(get_parent().get_node("Map").get_cell(self.position.x/8,self.position.y/8))
+	print(get_parent().get_node("Floor").get_cell(self.position.x/8,self.position.y/8))
 	move()
 	
 func check_tile(posx,posy):
-	var tile = get_parent().get_node("Map").get_cell((self.position.x+posx)/8,(self.position.y+posy)/8)
+	var tile = get_parent().get_node("Floor").get_cell((self.position.x+posx)/8,(self.position.y+posy)/8)
 	if tile == -1 or tile == 1:
 		return false
 	else:

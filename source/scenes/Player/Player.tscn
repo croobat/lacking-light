@@ -22,8 +22,7 @@ shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 4, 4 )
-rotation = 1.84481
 enabled = true
-cast_to = Vector2( 0, 6 )
+cast_to = Vector2( 0, 2 )
 collision_mask = 2
 collide_with_areas = true
