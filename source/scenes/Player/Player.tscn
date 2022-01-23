@@ -69,8 +69,10 @@ position = Vector2( 4, 4 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 current = true
-smoothing_speed = 50.0
+limit_smoothed = true
+smoothing_enabled = true
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Camera2D"]
@@ -78,5 +80,4 @@ frames = SubResource( 11 )
 offset = Vector2( 0, 4 )
 
 [node name="LightMeter" parent="." instance=ExtResource( 5 )]
-
-[connection signal="turnStep" from="." to="Camera2D" method="_on_Player_turnStep"]
+visible = false

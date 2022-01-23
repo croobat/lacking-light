@@ -1,8 +1,7 @@
 extends Node
 
 var player = {
-	"score": 0,
-	"hp": 3,
+	"score": 25,
 	"Oil": 8,
-	"Key": 0
+	"Key": 3
 }
