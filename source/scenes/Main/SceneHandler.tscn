@@ -24,9 +24,6 @@ position = Vector2( 16, 16 )
 [node name="Key" parent="." instance=ExtResource( 6 )]
 position = Vector2( 16, 48 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, 8 )
-
 [node name="Torch" parent="." instance=ExtResource( 8 )]
 position = Vector2( 48, 48 )
 
@@ -35,3 +32,6 @@ position = Vector2( 40, 64 )
 
 [node name="Key" parent="Key2" instance=ExtResource( 6 )]
 position = Vector2( 25, -41 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40, 8 )
