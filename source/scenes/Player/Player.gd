@@ -82,7 +82,6 @@ func check_tile(posx,posy):
 		elif tile == 6:
 			Data.player["Score"] += 25
 			win()
-			pass
 		else:
 			return true
 	return false
