@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pick_oil.wav-220ac90a3e1243ea594e7247a429a1c0.sample"
+
+[deps]
+
+source_file="res://assets/SFX/pick_oil.wav"
+dest_files=[ "res://.import/pick_oil.wav-220ac90a3e1243ea594e7247a429a1c0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
