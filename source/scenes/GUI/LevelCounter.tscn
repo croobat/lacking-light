@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/GUI/Counter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/GUI/LevelLabel.gd" type="Script" id=2]
+
+[node name="LevelCounter" instance=ExtResource( 1 )]
+margin_right = 74.0
+
+[node name="Label" parent="." index="0"]
+margin_right = 66.0
+text = "Level: 10"
+script = ExtResource( 2 )

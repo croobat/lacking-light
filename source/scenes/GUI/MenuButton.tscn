@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/GUI/gui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/GUI/MenuButton.gd" type="Script" id=2]
+
+[node name="MenuButton" type="Button"]
+margin_right = 70.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 16 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.803922, 0.831373, 0.647059, 1 )
+custom_colors/font_color_shadow = Color( 0.603922, 0.384314, 0.470588, 1 )
+custom_constants/shadow_offset_x = 0
+text = "Label"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
