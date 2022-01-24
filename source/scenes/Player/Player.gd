@@ -13,7 +13,7 @@ onready var camera = get_node("Camera2D")
 
 func _ready():
 	connect("move",Nodo_mapa,"_on_Player_move")
-	#connect("turnStep",camera,"_on_Player_turnStep")
+	connect("turnStep",camera,"_on_Player_turnStep")
 
 
 func _physics_process(delta):

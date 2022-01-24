@@ -9,5 +9,4 @@
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 589837, 0, 196608 )
 script = ExtResource( 1 )
