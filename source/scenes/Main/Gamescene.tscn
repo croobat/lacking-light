@@ -1,15 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/GUI/Inteface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Maps/room0.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Main/SceneHandler.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Main/WorldGenerator.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Main/Gamescene.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Maps/tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://scenes/Enemigos/Enemy.tscn" type="PackedScene" id=6]
 
 [node name="Gamescene" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="TileMap" parent="." instance=ExtResource( 3 )]
-position = Vector2( 336, 272 )
+[node name="WorldGenerator" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 8, 8 )
+format = 1
+script = ExtResource( 3 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -19,7 +24,12 @@ margin_right = 240.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
 
+[node name="Enemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 568, 600 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 384, 320 )
+position = Vector2( 600, 600 )
+
+[connection signal="turnStep" from="Player" to="." method="_on_Player_turnStep"]
 
 [editable path="Player"]

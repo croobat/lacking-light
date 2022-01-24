@@ -1,7 +1,5 @@
 extends "res://scenes/Pathfinding.gd"
 
-
-	
 func _on_Player_move():
 	used_cells = get_used_cells_by_id(1)
 	_add_points()
@@ -13,7 +11,6 @@ func _on_Player_move():
 	#(path,world_to_map(Player.global_position))
 	if len(path) <= 1:
 		pass
-		#print("Died")
 	else:
 		Enemy.position = map_to_world(path[-2])
 

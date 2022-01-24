@@ -1,10 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/shadows.png" type="Texture" id=3]
 [ext_resource path="res://scenes/Player/Camera2D.gd" type="Script" id=4]
-[ext_resource path="res://scenes/GUI/LightMeter.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -77,6 +76,3 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Camera2D"]
 frames = SubResource( 11 )
 offset = Vector2( 0, 4 )
-
-[node name="LightMeter" parent="." instance=ExtResource( 5 )]
-visible = false

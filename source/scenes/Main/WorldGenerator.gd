@@ -1,15 +1,11 @@
-extends Node2D
-
+extends "res://scenes/Pathfinding.gd"
 
 const START_ROOM_COUNT = 2
 const ROOM_INCREASE_PER_LEVEL = 2
-
 const TOTAL_ROOMS_AVAILABLE = 8
 const CELL_SIZE = 8
 const ROOMS_SIZE = 10
-
 var world_size = 10
-
 var roomDict = {}
 var world = []
 var posible_rooms = []
@@ -34,8 +30,8 @@ func _ready():
 		for j in world_size:
 			world[i][j] = 0
 	#occupy center tile
+
 	world[world_size/2 | 0][world_size/2 | 0] = 2
-	
 	#select rooms x number of times
 	for i in total_rooms:
 		getPosibleRoomLocations(posible_rooms, 1, 4)
@@ -45,6 +41,8 @@ func _ready():
 	calcFurthestCell(posible_rooms)
 	#spawn rooms and walls
 	spawnRooms(roomDict)
+	#mapa
+	generate_floor()
 	
 
 func getPosibleRoomLocations(list, num, limit):
@@ -123,3 +121,23 @@ func calcFurthestCell(list):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func _on_Player_move():
+	var used_cells = get_used_cells_by_id(1)
+	_add_points(used_cells)
+	_connect_points(used_cells)
+	var Player_pos = world_to_map(Player.global_position)
+	var Enemy_pos = world_to_map(Enemy.global_position)
+	_get_path(Player_pos,Enemy_pos)
+	#(path,world_to_map(Player.global_position))
+	if len(path) <= 1:
+		pass
+	else:
+		Enemy.position = map_to_world(path[-2])
+
+func generate_floor():
+	var map = self.get_children()
+	for i in map:
+		new_floor.append(i.get_used_cells_by_id(1)+i.get_used_cells_by_id(2)) 
+	for i in range(len(map)):
+		for j in new_floor[i]:
+			self.set_cell(j[0]+map[i].global_position[0]/8,j[1]+map[i].global_position[1]/8,1)	
