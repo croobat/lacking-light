@@ -3,6 +3,10 @@ extends Control
 var scene_path_to_load
 
 func _ready():
+	Data.player["Score"] = 0
+	Data.player["Keys"] = 0
+	Data.player["Level"] = 1
+	
 	for button in $Menu/Buttons.get_children():
 		button.connect("pressed", self, "on_Button_pressed", [button.scene_to_load])
 

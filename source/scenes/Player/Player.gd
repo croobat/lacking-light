@@ -34,6 +34,8 @@ func _physics_process(delta):
 		turnStep(turnsteps)
 		emit_signal("turnStep")
 		turnsteps = 0
+	if Data.player["Oil"] == 2:
+		win()
 
 func check_tile(posx,posy):
 	for i in range(len(map)):
@@ -95,7 +97,16 @@ func turnStep(turnsteps):
 	if Data.player["Oil"] > 0:
 		Data.player["Oil"] -= 1
 
-
 func _on_Player_area_entered(area):
 	print("ok")
 	Data.player["Oil"]-=1
+func _on_WorldGenerator_world_generated():
+	self.position = Data.player["playerPos"]
+
+func win():
+	get_parent().get_node("UI/Interface/FadeIn").show()
+	get_parent().get_node("UI/Interface/FadeIn").fade_in()
+	
+func _on_FadeIn_fade_finished():
+	Data.player["Level"] += 1
+	get_tree().reload_current_scene()

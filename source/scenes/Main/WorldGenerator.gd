@@ -10,10 +10,12 @@ var roomDict = {}
 var world = []
 var posible_rooms = []
 var occupied_rooms = []
+signal world_generated
 
 func _ready():
 	randomize()
-	var level = 1
+	var level = Data.player["Level"]
+	Data.player["Oil"] = 8
 	world_size += level
 	var total_rooms = START_ROOM_COUNT + level * ROOM_INCREASE_PER_LEVEL
 	#loading room templates
@@ -30,8 +32,8 @@ func _ready():
 		for j in world_size:
 			world[i][j] = 0
 	#occupy center tile
-
 	world[world_size/2 | 0][world_size/2 | 0] = 2
+	Data.player["playerPos"] = Vector2(((world_size/2 | 0)+0.5)*ROOMS_SIZE*CELL_SIZE, ((world_size/2 | 0)+0.5)*ROOMS_SIZE*CELL_SIZE)
 	#select rooms x number of times
 	for i in total_rooms:
 		getPosibleRoomLocations(posible_rooms, 1, 4)
@@ -44,6 +46,9 @@ func _ready():
 	#mapa
 	generate_floor()
 	generate_items()
+	
+	emit_signal("world_generated")
+	
 	
 
 func getPosibleRoomLocations(list, num, limit):

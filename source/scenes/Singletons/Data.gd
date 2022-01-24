@@ -1,7 +1,9 @@
 extends Node
 
 var player = {
-	"score": 25,
+	"Score": 0,
 	"Oil": 8,
-	"Key": 0
+	"Key": 0,
+	"Level": 1,
+	"playerPos": Vector2(0,0)
 }
