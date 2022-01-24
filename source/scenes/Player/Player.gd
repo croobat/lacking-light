@@ -5,7 +5,7 @@ signal turnStep
 signal damage
 var count = 0
 var turnsteps = 0
-const STEPS_PER_TURN = 12
+const STEPS_PER_TURN = 10
 const ENEMY_STEP_COUNT = 2
 
 var not_allowed = [-1,0]

@@ -12,4 +12,3 @@ func _process(delta):
 
 func _on_Player_turnStep():
 	pass
-	

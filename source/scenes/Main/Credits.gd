@@ -27,7 +27,9 @@ var credits = [
 	],[
 		"Programming",
 		"Lead - Rodolfo Pinedo Suarez",
-		"Luis Antonio Ramirez Garcia"
+		"GitHub: RodoPZ",
+		"Luis Antonio Ramirez Garcia",
+		"GitHub: Croobat"
 	],[
 		"Art",
 		"Luis Antonio Ramirez Garcia"
@@ -38,13 +40,11 @@ var credits = [
 		"Sound Effects",
 		"Luis Antonio Ramirez Garcia"
 	],
-	#[
-	#	"Testers",
-	#	"Missi",
-	#	"Gusini",
-	#	"Juampix",
-	#	"Fridongui"
-	#],
+	[
+		"Cover Art",
+		"Frida Camila Rivas Moreno",
+		"Twitter: @frida_rm1"
+	],
 	[
 		"Tools used",
 		"Developed with Godot Engine",
@@ -53,11 +53,14 @@ var credits = [
 		"Art created with Aseprite",
 		"https://www.aseprite.org/",
 		"",
-		"Music created in Beepbox",
+		"Jingles created in Beepbox",
 		"https://www.beepbox.co/",
 		"",
 		"Sound effects made in Jsfxr",
 		"https://sfxr.me/",
+		"",
+		"Applied music: Caves of Dawn",
+		"https://pixabay.com/music/ambient-caves-of-dawn-10376/",
 		"",
 		"Applied fonts",
 		"Arcadepix",
@@ -68,13 +71,12 @@ var credits = [
 		"Applied color palette",
 		"https://lospec.com/palette-list/purplemorning8"
 	]
-	#,[
-	#	"Special thanks",
-	#	"Game Developer Center YouTube channel",
-	#	"They have an amazing tower defense guide made",
-	#	"in Godot. Go check it out!",
-	#	"www.youtube.com/c/GameDevelopmentCenter"
-	#]
+	,[
+		"Check the game's source code on GitHub!!",
+		"https://github.com/Croobat/lacking-light",
+		"",
+		"PS. Sorry for the creepy music xD"
+	]
 ]
 
 

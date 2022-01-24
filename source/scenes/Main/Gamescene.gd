@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$MusicLevel.play()
 	Data.player["Oil"] = 8
 	Data.player["Keys"] = 0
 
