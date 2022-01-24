@@ -1,4 +1,4 @@
-extends "res://scenes/Pathfinding.gd"
+extends TileMap
 
 const START_ROOM_COUNT = 2
 const ROOM_INCREASE_PER_LEVEL = 2
@@ -13,7 +13,7 @@ var occupied_rooms = []
 
 func _ready():
 	randomize()
-	var level = 5
+	var level = 1
 	world_size += level
 	var total_rooms = START_ROOM_COUNT + level * ROOM_INCREASE_PER_LEVEL
 	#loading room templates
@@ -44,6 +44,7 @@ func _ready():
 	spawnRooms(roomDict)
 	#mapa
 	generate_floor()
+	generate_items()
 	
 
 func getPosibleRoomLocations(list, num, limit):
@@ -122,24 +123,45 @@ func calcFurthestCell(list):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func _on_Player_move():
-	var used_cells = get_used_cells_by_id(1)
-	_add_points(used_cells)
-	_connect_points(used_cells)
-	var Player_pos = world_to_map(Player.global_position)
-	var Enemy_pos = world_to_map(Enemy.global_position)
-	_get_path(Player_pos,Enemy_pos)
-	#(path,world_to_map(Player.global_position))
-	if len(path) <= 1:
-		pass
-	else:
-		Enemy.position = map_to_world(path[-2])
 
+#First create the new floor
 func generate_floor():
+	var new_floor= []
 	var map = self.get_children()
-	print(map)
 	for i in map:
-		new_floor.append(i.get_used_cells_by_id(1)+i.get_used_cells_by_id(2)) 
+		new_floor.append(i.get_used_cells_by_id(1)+i.get_used_cells_by_id(2)+i.get_used_cells_by_id(3)) 
 	for i in range(len(map)):
 		for j in new_floor[i]:
 			self.set_cell(j[0]+map[i].global_position[0]/8,j[1]+map[i].global_position[1]/8,1)	
+
+func generate_items():
+	var new_items = []
+	var map = self.get_children()
+	var rand_value = 0
+	var tile_map = []
+	var new_tile = []
+	
+	for i in map:
+		if i.get_used_cells_by_id(3) != []:
+			new_items.append([i,i.get_used_cells_by_id(3)])	
+			
+	#Keys
+	for i in range(3):
+		rand_value = new_items[randi() % new_items.size()]
+		tile_map = rand_value[0]
+		rand_value.erase(tile_map)
+		new_tile = rand_value[randi() % rand_value.size()]
+		tile_map.set_cell(new_tile[0][0],new_tile[0][1],4)
+		new_items.erase(rand_value)
+		
+	#Oil
+	for i in map:
+		if i.get_used_cells_by_id(3) != []:
+			new_items.append([i,i.get_used_cells_by_id(3)])	
+	for i in range(4):
+		rand_value = new_items[randi() % new_items.size()]
+		tile_map = rand_value[0]
+		rand_value.erase(tile_map)
+		new_tile = rand_value[randi() % rand_value.size()]
+		tile_map.set_cell(new_tile[0][0],new_tile[0][1],5)
+		new_items.erase(rand_value)

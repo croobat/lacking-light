@@ -2,20 +2,24 @@ extends Area2D
 
 signal move
 signal turnStep
+signal damage
 var count = 0
 var turnsteps = 0
-const STEPS_PER_TURN = 5
+const STEPS_PER_TURN = 7
 const ENEMY_STEP_COUNT = 2
 
 var not_allowed = [-1,0]
 
 #onready var map = get_parent().get_node("Node2D/TileMap2")
 onready var map = get_parent().get_node("WorldGenerator").get_children()
-onready var Nodo_mapa = get_parent().get_node("WorldGenerator")
+onready var Enemy = get_parent().get_node("Enemies").get_children()
 onready var camera = get_node("Camera2D")
 
 func _ready():
-	connect("move",Nodo_mapa,"_on_Player_move")
+	for i in Enemy:
+		print(i)
+		connect("move",i,"_on_Player_move")
+	connect("damage",self,"_on_Player_area_entered")
 	#connect("turnStep",camera,"_on_Player_turnStep")
 
 
@@ -34,8 +38,8 @@ func _physics_process(delta):
 
 func check_tile(posx,posy):
 	for i in range(len(map)):
-		var tile = map[i].get_cell((
-			self.position.x+posx-map[i].global_position[0])/8,
+		var tile = map[i].get_cell(
+			(self.position.x+posx-map[i].global_position[0])/8,
 			(self.position.y+posy-map[i].global_position[1])/8
 			)
 		if tile in not_allowed:
@@ -43,12 +47,32 @@ func check_tile(posx,posy):
 		elif tile == 2:
 			if Data.player["Key"] > 0:
 				Data.player["Key"] -= 1
-				map.set_cell((self.position.x+posx)/8,(self.position.y+posy)/8,1)
-			else:
-				continue	
+				map[i].set_cell(
+					(self.position.x+posx-map[i].global_position[0])/8,
+					(self.position.y+posy-map[i].global_position[1])/8,
+					1
+					)
+		elif tile == 4:
+			Data.player["Key"] += 1
+			map[i].set_cell(
+				(self.position.x+posx-map[i].global_position[0])/8,
+				(self.position.y+posy-map[i].global_position[1])/8,
+				1
+				)
+		elif tile == 5:
+			Data.player["Oil"] = 8
+			map[i].set_cell(
+				(self.position.x+posx-map[i].global_position[0])/8,
+				(self.position.y+posy-map[i].global_position[1])/8,
+				1
+				)
+		elif tile == 6:
+			print("Win")
+			pass
 		else:
 			return true
 	return false
+	
 func move(turnsteps,count):
 	if Input.is_action_just_released("ui_up") and check_tile(0,-8):
 		self.position.y -= 8
@@ -72,3 +96,7 @@ func turnStep(turnsteps):
 	if Data.player["Oil"] > 0:
 		Data.player["Oil"] -= 1
 
+
+func _on_Player_area_entered(area):
+	print("ok")
+	Data.player["Oil"]-=1

@@ -1,11 +1,9 @@
-extends TileMap
+extends Area2D
 class_name AStar_Path
 
 onready var astar = AStar2D.new()
-onready var Enemy = get_parent().get_node("Enemy")
-onready var Player = get_parent().get_node("Player")
-
-var new_floor= []
+onready var Player = get_parent().get_parent().get_node("Player")
+onready var map = get_parent().get_parent().get_node("WorldGenerator")
 var path = []
 
 func _add_points(used_cells):
@@ -28,3 +26,16 @@ func id(point):
 	var b = point.y
 	return (a+b) * (a+b+1)/2+b		
 		
+func _on_Player_move():
+	var used_cells = map.get_used_cells_by_id(1)
+	_add_points(used_cells)
+	_connect_points(used_cells)
+	var Player_pos = map.world_to_map(Player.global_position)
+	var Enemy_pos = map.world_to_map(self.global_position)
+	_get_path(Player_pos,Enemy_pos)
+	#(path,world_to_map(Player.global_position))
+	if len(path) <= 1:
+		pass
+	else:
+		self.position = map.map_to_world(path[-2])
+
