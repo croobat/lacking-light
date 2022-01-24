@@ -1,9 +1,8 @@
 
 # Lacking light
+![Lacking light cover art](https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/8F195F4F-E08C-428E-ACBC-6F432DFE1B0E.png)
+You can play a working version of the game on [itch.io](Link here) or [New Grounds](Link here).
 
-```xml
-<img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/8F195F4F-E08C-428E-ACBC-6F432DFE1B0E.png" alt="Lacking light cover art" width="200"/>
-```
 This prototipe was made in the Godot game engine using GDscript.
 
 This is a Godot 8-bit roguelike with darkness mechanics **prototype**, it is intended to be a simple reference for **beginners** making a similar game.
