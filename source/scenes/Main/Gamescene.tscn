@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/GUI/Interface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -35,3 +35,4 @@ volume_db = -20.0
 
 [connection signal="world_generated" from="WorldGenerator" to="Player" method="_on_WorldGenerator_world_generated"]
 [connection signal="fade_finished" from="UI/Interface/FadeIn" to="Player" method="_on_FadeIn_fade_finished"]
+[connection signal="turnStep" from="Player" to="." method="_on_Player_turnStep"]

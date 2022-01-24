@@ -117,6 +117,7 @@ func _on_WorldGenerator_world_generated():
 
 func win():
 	sound_win.play()
+	Data.player["Key"] = 0
 	get_parent().get_node("UI/Interface/FadeIn").show()
 	get_parent().get_node("UI/Interface/FadeIn").fade_in()
 

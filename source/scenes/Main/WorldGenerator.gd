@@ -148,7 +148,7 @@ func generate_items():
 		if i.get_used_cells_by_id(3) != []:
 			new_items.append([i,i.get_used_cells_by_id(3)])	
 	#Keys
-	for _i in range(3):
+	for _i in range(4):
 		rand_value = new_items[randi() % new_items.size()]
 		tile_map = rand_value[0]
 		rand_value.erase(tile_map)
@@ -160,7 +160,7 @@ func generate_items():
 	for i in map:
 		if i.get_used_cells_by_id(3) != []:
 			new_items.append([i,i.get_used_cells_by_id(3)])
-	for _i in range(5):
+	for _i in range(4 + 2*Data.player["Level"]):
 		rand_value = new_items[randi() % new_items.size()]
 		tile_map = rand_value[0]
 		rand_value.erase(tile_map)

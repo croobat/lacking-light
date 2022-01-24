@@ -9,6 +9,3 @@ func _ready():
 func _process(delta):
 	animated_sprite.set_frame(current_frame)
 	current_frame = Data.player["Oil"]
-
-func _on_Player_turnStep():
-	pass
