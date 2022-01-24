@@ -122,10 +122,6 @@ func calcFurthestCell(list):
 		for m in range(-1,2,1):
 			if world[furthest_room.x + n][furthest_room.y + m] == 0:
 				world[furthest_room.x + n][furthest_room.y + m] = 3
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 #First create the new floor
 func generate_floor():
@@ -160,7 +156,8 @@ func generate_items():
 	#Oil
 	for i in map:
 		if i.get_used_cells_by_id(3) != []:
-			new_items.append([i,i.get_used_cells_by_id(3)])	
+			new_items.append([i,i.get_used_cells_by_id(3)])
+			
 	for i in range(4):
 		rand_value = new_items[randi() % new_items.size()]
 		tile_map = rand_value[0]

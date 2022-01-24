@@ -48,7 +48,7 @@ tracks/0/keys = {
 [node name="FadeIn" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.129412, 0.113725, 0.219608, 0 )
+color = Color( 0.129412, 0.113725, 0.219608, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

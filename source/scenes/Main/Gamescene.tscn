@@ -20,15 +20,9 @@ script = ExtResource( 3 )
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="UI" instance=ExtResource( 1 )]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 228.0
-margin_bottom = 124.0
-rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="FadeIn" parent="UI/Interface" instance=ExtResource( 7 )]
 visible = false
-color = Color( 0.129412, 0.113725, 0.219608, 1 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
