@@ -3,9 +3,6 @@
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/cover_art%5B540x531%5D.png" height="500"/>
-  <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_1.png">
-  <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_2.png">
-  <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_3.png">
 </p>
 
 You can play a working version of the game on [Itch.io](https://tonyram9906.itch.io/lacking-light) or [NewGrounds](https://www.newgrounds.com/portal/view/830501).
@@ -27,6 +24,13 @@ Just import the source/**Project.godot** using the Godot engine.
 Your goal is to light the torch in the room at the end, but you'll need keys to open the doors that block your way. Watch out for the monsters and don't let your lamp run out! 
 You can grab oil cans to refuel your lamp.
 
-## License
+## Screenshots
+<p>
+  <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_1.png">
+  <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_2.png">
+  <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_3.png">
+  ![Gameplay gif](https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Animation_small.gif)
+</p>
 
+## License
 MIT
