@@ -3,6 +3,9 @@
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/cover_art%5B540x531%5D.png" height="500"/>
+  <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_1.png">
+  <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_2.png">
+  <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_3.png">
 </p>
 
 You can play a working version of the game on [Itch.io](https://tonyram9906.itch.io/lacking-light) or [NewGrounds](https://www.newgrounds.com/portal/view/830501).
