@@ -17,7 +17,6 @@ onready var camera = get_node("Camera2D")
 
 func _ready():
 	for i in Enemy:
-		print(i)
 		connect("move",i,"_on_Player_move")
 	connect("damage",self,"_on_Player_area_entered")
 	connect("turnStep",camera,"_on_Player_turnStep")

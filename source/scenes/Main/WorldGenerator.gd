@@ -11,6 +11,8 @@ var world = []
 var posible_rooms = []
 var occupied_rooms = []
 signal world_generated
+onready var map = []
+onready var new_items = []
 
 func _ready():
 	randomize()
@@ -44,9 +46,11 @@ func _ready():
 	#spawn rooms and walls
 	spawnRooms(roomDict)
 	#mapa
+	
+	map = self.get_children()
 	generate_floor()
 	generate_items()
-	
+	generate_enemy()
 	emit_signal("world_generated")
 	
 	
@@ -131,16 +135,16 @@ func calcFurthestCell(list):
 #First create the new floor
 func generate_floor():
 	var new_floor= []
-	var map = self.get_children()
 	for i in map:
-		new_floor.append(i.get_used_cells_by_id(1)+i.get_used_cells_by_id(2)+i.get_used_cells_by_id(3)) 
+		new_floor.append(i.get_used_cells_by_id(1)
+		+i.get_used_cells_by_id(2)
+		+i.get_used_cells_by_id(3)
+		+i.get_used_cells_by_id(7)) 
 	for i in range(len(map)):
 		for j in new_floor[i]:
 			self.set_cell(j[0]+map[i].global_position[0]/8,j[1]+map[i].global_position[1]/8,1)	
 
 func generate_items():
-	var new_items = []
-	var map = self.get_children()
 	var rand_value = 0
 	var tile_map = []
 	var new_tile = []
@@ -148,9 +152,8 @@ func generate_items():
 	for i in map:
 		if i.get_used_cells_by_id(3) != []:
 			new_items.append([i,i.get_used_cells_by_id(3)])	
-			
 	#Keys
-	for i in range(3):
+	for _i in range(3):
 		rand_value = new_items[randi() % new_items.size()]
 		tile_map = rand_value[0]
 		rand_value.erase(tile_map)
@@ -161,11 +164,34 @@ func generate_items():
 	#Oil
 	for i in map:
 		if i.get_used_cells_by_id(3) != []:
-			new_items.append([i,i.get_used_cells_by_id(3)])	
-	for i in range(4):
+			new_items.append([i,i.get_used_cells_by_id(3)])
+	for _i in range(5):
 		rand_value = new_items[randi() % new_items.size()]
 		tile_map = rand_value[0]
 		rand_value.erase(tile_map)
 		new_tile = rand_value[randi() % rand_value.size()]
 		tile_map.set_cell(new_tile[0][0],new_tile[0][1],5)
 		new_items.erase(rand_value)
+
+func generate_enemy():
+	var rand_value = 0
+	var tile_map = []
+	var new_tile = []
+	var enemy = load("res://scenes/Enemigos/Enemy.tscn")
+	for i in map:
+		if i.get_used_cells_by_id(7) != []:
+			new_items.append([i,i.get_used_cells_by_id(7)])	
+	for _i in range(1):
+		get_parent().get_node("Enemies").add_child(enemy.instance())
+		
+	for i in get_parent().get_node("Enemies").get_children():
+		rand_value = new_items[randi() % new_items.size()]
+		tile_map = rand_value[0]
+		rand_value.erase(tile_map)
+		new_tile = rand_value[randi() % rand_value.size()]
+		get_parent().get_node("Enemies/"+i.name).global_position = Vector2(
+			new_tile[0][0]*8+tile_map.get_global_position()[0],
+			new_tile[0][1]*8+tile_map.get_global_position()[1])
+		new_items.erase(rand_value)
+	
+

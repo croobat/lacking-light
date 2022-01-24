@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/GUI/Interface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Main/WorldGenerator.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Main/Gamescene.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Maps/tileset.tres" type="TileSet" id=5]
-[ext_resource path="res://scenes/Enemigos/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/GUI/fade_in.tscn" type="PackedScene" id=7]
 
 [node name="Gamescene" type="Node2D"]
@@ -30,12 +29,8 @@ color = Color( 0.129412, 0.113725, 0.219608, 1 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 464, 440 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 440, 440 )
 
 [connection signal="world_generated" from="WorldGenerator" to="Player" method="_on_WorldGenerator_world_generated"]
 [connection signal="fade_finished" from="UI/Interface/FadeIn" to="Player" method="_on_FadeIn_fade_finished"]
-[connection signal="turnStep" from="Player" to="." method="_on_Player_turnStep"]
