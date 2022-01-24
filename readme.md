@@ -29,8 +29,8 @@ You can grab oil cans to refuel your lamp.
   <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_1.png">
   <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_2.png">
   <img src="https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Screenshot_3.png">
-  ![Gameplay gif](https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Animation_small.gif)
 </p>
+  ![Gameplay gif](https://raw.githubusercontent.com/Croobat/lacking-light/main/docs/Animation_small.gif)
 
 ## License
 MIT
