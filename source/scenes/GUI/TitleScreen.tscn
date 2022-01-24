@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/GUI/CreditsButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Screens/Title.png" type="Texture" id=2]
+[ext_resource path="res://scenes/GUI/NewGameButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/GUI/OptionsButton.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+step = 1.0
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="TextureRect" parent="."]
+margin_right = 240.0
+margin_bottom = 135.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 65.0
+margin_right = -168.0
+margin_bottom = -2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="Menu"]
+margin_right = 68.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 2
+
+[node name="NewGameButton" parent="Menu/Buttons" instance=ExtResource( 3 )]
+margin_right = 68.0
+rect_min_size = Vector2( 0, 0 )
+
+[node name="OptionsButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
+margin_top = 22.0
+margin_right = 68.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 0 )
+
+[node name="CreditsButton" parent="Menu/Buttons" instance=ExtResource( 1 )]
+margin_top = 44.0
+margin_right = 68.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 0 )
+
+[node name="FadeIn" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.129412, 0.113725, 0.219608, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeIn"]
+anims/fade_in = SubResource( 1 )
