@@ -5,7 +5,8 @@ const ROOM_INCREASE_PER_LEVEL = 2
 const TOTAL_ROOMS_AVAILABLE = 8
 const CELL_SIZE = 8
 const ROOMS_SIZE = 10
-var world_size = 10
+const EXTERNAL_LIMIT_GRID = 5
+var world_size = 13
 var roomDict = {}
 var world = []
 var posible_rooms = []
@@ -21,8 +22,6 @@ func _ready():
 	#loading room templates
 	for room_num in (TOTAL_ROOMS_AVAILABLE):
 		roomDict[room_num] = load("res://scenes/Maps/room" + str(room_num) + ".tscn")
-	#var room_start = load("res://scenes/Maps/roomstart.tscn").instance()
-	#var room_finish = load("res://scenes/Maps/roomfinish.tscn").instance()
 	
 	#generate world grid
 		#0 means empty, 1 means spawnable, 2 means occupied, 3 means block
@@ -36,10 +35,10 @@ func _ready():
 	Data.player["playerPos"] = Vector2(((world_size/2 | 0)+0.5)*ROOMS_SIZE*CELL_SIZE, ((world_size/2 | 0)+0.5)*ROOMS_SIZE*CELL_SIZE)
 	#select rooms x number of times
 	for i in total_rooms:
-		getPosibleRoomLocations(posible_rooms, 1, 4)
+		getPosibleRoomLocations(posible_rooms, 1, EXTERNAL_LIMIT_GRID + 1)
 		selectNewRoom(posible_rooms)
 	#surround all rooms with walls
-	getPosibleRoomLocations(posible_rooms, 3, 3)
+	getPosibleRoomLocations(posible_rooms, 3, EXTERNAL_LIMIT_GRID)
 	calcFurthestCell(posible_rooms)
 	#spawn rooms and walls
 	spawnRooms(roomDict)

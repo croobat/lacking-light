@@ -15,10 +15,10 @@ __meta__ = {
 [node name="LightMeter" parent="." instance=ExtResource( 1 )]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 19.0
-margin_top = -28.0
-margin_right = 60.0
-margin_bottom = -11.0
+margin_left = 17.0
+margin_top = -24.0
+margin_right = 58.0
+margin_bottom = -7.0
 rect_scale = Vector2( 2, 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -26,10 +26,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -145.0
-margin_top = -20.0
-margin_right = -5.0
-margin_bottom = -4.0
+margin_left = -140.0
+margin_top = -16.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -51,10 +49,8 @@ rect_min_size = Vector2( 77, 0 )
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -68.0
-margin_top = 3.0
-margin_right = -3.0
-margin_bottom = 19.0
+margin_left = -65.0
+margin_bottom = 16.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
