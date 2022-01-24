@@ -111,7 +111,8 @@ func turnStep(turnsteps):
 		Data.player["Oil"] -= 1
 
 func _on_Player_area_entered(area):
-	Data.player["Oil"]-=1
+	Data.player["Oil"]-=2
+	sound_hit.play()
 func _on_WorldGenerator_world_generated():
 	self.position = Data.player["playerPos"]
 
