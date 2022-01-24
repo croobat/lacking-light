@@ -137,6 +137,7 @@ func _on_Player_move():
 
 func generate_floor():
 	var map = self.get_children()
+	print(map)
 	for i in map:
 		new_floor.append(i.get_used_cells_by_id(1)+i.get_used_cells_by_id(2)) 
 	for i in range(len(map)):

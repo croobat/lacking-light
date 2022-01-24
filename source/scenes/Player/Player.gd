@@ -6,6 +6,9 @@ var count = 0
 var turnsteps = 0
 const STEPS_PER_TURN = 5
 const ENEMY_STEP_COUNT = 2
+
+var not_allowed = [-1,0]
+
 #onready var map = get_parent().get_node("Node2D/TileMap2")
 onready var map = get_parent().get_node("WorldGenerator").get_children()
 onready var Nodo_mapa = get_parent().get_node("WorldGenerator")
@@ -35,7 +38,7 @@ func check_tile(posx,posy):
 			self.position.x+posx-map[i].global_position[0])/8,
 			(self.position.y+posy-map[i].global_position[1])/8
 			)
-		if tile == -1 or tile == 0:
+		if tile in not_allowed:
 			continue
 		elif tile == 2:
 			if Data.player["Key"] > 0:
