@@ -5,7 +5,7 @@ signal turnStep
 signal damage
 var count = 0
 var turnsteps = 0
-const STEPS_PER_TURN = 7
+const STEPS_PER_TURN = 10
 const ENEMY_STEP_COUNT = 2
 
 var not_allowed = [-1,0]
@@ -20,7 +20,7 @@ func _ready():
 		print(i)
 		connect("move",i,"_on_Player_move")
 	connect("damage",self,"_on_Player_area_entered")
-	#connect("turnStep",camera,"_on_Player_turnStep")
+	connect("turnStep",camera,"_on_Player_turnStep")
 
 func _physics_process(delta):
 	var steps = move(turnsteps, count)
@@ -34,8 +34,6 @@ func _physics_process(delta):
 		turnStep(turnsteps)
 		emit_signal("turnStep")
 		turnsteps = 0
-	if Data.player["Oil"] == 2:
-		win()
 
 func check_tile(posx,posy):
 	for i in range(len(map)):
@@ -68,7 +66,7 @@ func check_tile(posx,posy):
 				1
 				)
 		elif tile == 6:
-			print("Win")
+			win()
 			pass
 		else:
 			return true
