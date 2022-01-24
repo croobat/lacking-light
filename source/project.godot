@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "TileMap",
+"base": "Area2D",
 "class": "AStar_Path",
 "language": "GDScript",
-"path": "res://scenes/Pathfinding.gd"
+"path": "res://scenes/Enemigos/Enemy_AI.gd"
 } ]
 _global_script_class_icons={
 "AStar_Path": ""
