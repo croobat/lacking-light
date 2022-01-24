@@ -22,7 +22,6 @@ func _ready():
 	connect("damage",self,"_on_Player_area_entered")
 	#connect("turnStep",camera,"_on_Player_turnStep")
 
-
 func _physics_process(delta):
 	var steps = move(turnsteps, count)
 	turnsteps = steps[0]

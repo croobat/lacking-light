@@ -32,7 +32,6 @@ func _ready():
 	#occupy center tile
 
 	world[world_size/2 | 0][world_size/2 | 0] = 2
-	print(((world_size/2 | 0)+0.5)*ROOMS_SIZE*CELL_SIZE)
 	#select rooms x number of times
 	for i in total_rooms:
 		getPosibleRoomLocations(posible_rooms, 1, 4)
